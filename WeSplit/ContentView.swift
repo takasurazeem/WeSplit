@@ -16,13 +16,22 @@ struct ContentView: View {
     let tipPercengates = [10, 15, 20, 25, 0]
     
     var body: some View {
+        NavigationView {
             Form {
                 Section {
                     TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
                         .keyboardType(.decimalPad)
                     
+                    Picker("Number of people", selection: $nunmberOfPeople) {
+                        ForEach(2..<100) {
+                            Text("\($0) people")
+                        }
+                    }
+                    
                 }
             }
+            .navigationTitle("WeSplit")
+        }
     }
 }
 
