@@ -29,6 +29,16 @@ struct ContentView: View {
                     }
                     
                 }
+                Section {
+                    Picker("Tip Percentage", selection: $tipPercentage) {
+                        ForEach(tipPercengates, id: \.self) {
+                            Text($0, format: .percent)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                } header: {
+                    Text("How much tip do you want to leave?")
+                }
             }
             .navigationTitle("WeSplit")
         }
